@@ -46,34 +46,9 @@
   --measure:39rem;
   color-scheme:light;
 }
-:root[data-theme="dark"]{
-  --paper:#191715; --paper-2:#211E1B; --paper-3:#141210;
-  --ink:#EAE4DB; --ink-2:#B4ACA1; --ink-3:#867E74;
-  --rule:#332F2A; --rule-2:#413B35;
-  --sage:#95B4A1; --sage-bg:#1D2521;
-  --amber:#D0A470; --amber-bg:#282016;
-  --sky:#92AEC2; --sky-bg:#1A2127;
-  --clay:#CE9C90; --clay-bg:#281E1B;
-  --plum:#A99CC3; --plum-bg:#211D29;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px -14px rgba(0,0,0,.6);
-  --shadow-lg:0 2px 4px rgba(0,0,0,.3),0 22px 60px -26px rgba(0,0,0,.7);
-  color-scheme:dark;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --paper:#191715; --paper-2:#211E1B; --paper-3:#141210;
-    --ink:#EAE4DB; --ink-2:#B4ACA1; --ink-3:#867E74;
-    --rule:#332F2A; --rule-2:#413B35;
-    --sage:#95B4A1; --sage-bg:#1D2521;
-    --amber:#D0A470; --amber-bg:#282016;
-    --sky:#92AEC2; --sky-bg:#1A2127;
-    --clay:#CE9C90; --clay-bg:#281E1B;
-    --plum:#A99CC3; --plum-bg:#211D29;
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px -14px rgba(0,0,0,.6);
-    --shadow-lg:0 2px 4px rgba(0,0,0,.3),0 22px 60px -26px rgba(0,0,0,.7);
-    color-scheme:dark;
-  }
-}
+
+/* Light only, by design. A booklet read at 3am should look the same on every
+   screen -- no theme switching, no system-dependent surprises. */
 
 /* ============ base ============ */
 *,*::before,*::after{box-sizing:border-box}
@@ -296,6 +271,16 @@ td strong{color:var(--ink)}
 .endnote{margin:4rem 0 0;padding:1.4rem 1.5rem;border-radius:.5rem;background:var(--paper-3);font-size:.9em;line-height:2;color:var(--ink-2)}
 .sig{margin:3.4rem 0 0;text-align:center;font-size:.92em;color:var(--ink-3);line-height:2}
 
+/* ============ illustrations ============ */
+.ill-wrap{margin:3.4rem 0;text-align:center;line-height:0}
+.ill{display:inline-block;max-width:28rem;width:86%;height:auto;mix-blend-mode:multiply}
+.cover .ill-wrap{margin:2.2rem 0 .4rem}
+.cover .ill{max-width:19rem;width:64%}
+@media print{
+  .ill-wrap{margin:2rem 0;break-inside:avoid}
+  .ill{max-width:70mm;width:60%}
+}
+
 /* ============ divider ============ */
 .orn{display:flex;align-items:center;justify-content:center;gap:.65rem;margin:4rem 0}
 .orn i{width:4px;height:4px;border-radius:50%;background:var(--rule-2)}
@@ -339,7 +324,7 @@ td strong{color:var(--ink)}
 <symbol id="ic-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8c2.9 3.9 5 5.7 5 9.2a5 5 0 0 1-10 0c0-2 .9-3.5 2-4.6.3 1.6 1 2.4 1.8 2.7-.6-2.2-.8-4.7 1.2-7.3z"/></symbol>
 <symbol id="ic-caution" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.6v5.2"/><circle cx="12" cy="16.4" r=".95" fill="currentColor" stroke="none"/></symbol>
 <symbol id="ic-node" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="6" cy="8" r="2"/><circle cx="17" cy="5.8" r="2"/><circle cx="11.5" cy="15" r="2"/><circle cx="19.2" cy="16.2" r="1.7"/><path d="M7.7 9.3l2.8 4M15.2 7.1l-2.9 6.2M13.4 15.4l3.9.6"/></symbol>
-<symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.3l-1.3-1.2C6.1 15 3 12.2 3 8.8 3 6.1 5.1 4 7.8 4c1.6 0 3.2.8 4.2 2 1-1.2 2.6-2 4.2-2C18.9 4 21 6.1 21 8.8c0 3.4-3.1 6.2-7.7 10.4z"/></symbol>
+<symbol id="ic-sprout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9.4"/><path d="M12 14.6c-3.7 0-6.2-2.6-6.2-6.5 3.9.1 6.2 2.7 6.2 6.5z"/><path d="M12 12.6c0-3.7 2.5-6.3 6.4-6.4 0 3.9-2.6 6.4-6.4 6.4z"/></symbol>
 <symbol id="ic-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.8v6.4M14 8.8v6.4"/></symbol>
 <symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.8V12l3.4 2"/></symbol>
 <symbol id="ic-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.2v16M7.5 20.2h9M3.6 8.2h16.8"/><path d="M3.6 8.2L1.6 13a3 3 0 0 0 4 0zM20.4 8.2L22.4 13a3 3 0 0 1-4 0z"/><circle cx="12" cy="4.2" r="1.1"/></symbol>
@@ -353,12 +338,10 @@ td strong{color:var(--ink)}
 <symbol id="ic-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13.4 2.8L5.6 13.6h5.6L10.6 21.2l7.8-10.8h-5.6z"/></symbol>
 <symbol id="ic-door" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.4 21V4.6A1.6 1.6 0 0 1 7 3h10a1.6 1.6 0 0 1 1.6 1.6V21"/><path d="M2.8 21h18.4"/><circle cx="14.6" cy="12.4" r=".95" fill="currentColor" stroke="none"/></symbol>
 <symbol id="ic-hand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.4 11V4.9a1.5 1.5 0 1 1 3 0V10M11.4 10V3.9a1.5 1.5 0 1 1 3 0V10M14.4 10.4V5.6a1.5 1.5 0 1 1 3 0v7.6c0 4.2-2.5 7.2-6.3 7.2-3.2 0-4.9-1.8-6.1-4.4l-1.4-3a1.5 1.5 0 0 1 2.5-1.6l2.1 2.5"/></symbol>
-<symbol id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.3M12 19.7V22M4.3 4.3l1.6 1.6M18.1 18.1l1.6 1.6M2 12h2.3M19.7 12H22M4.3 19.7l1.6-1.6M18.1 5.9l1.6-1.6"/></symbol>
-<symbol id="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a8.6 8.6 0 1 0 10.8 10.8z"/></symbol>
 <symbol id="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
 <symbol id="ic-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19.2V5.6M6 11.4L12 5.4l6 6"/></symbol>
 <symbol id="ic-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8.6V3.4h10v5.2"/><path d="M7 17.4H5.4A2.4 2.4 0 0 1 3 15V11a2.4 2.4 0 0 1 2.4-2.4h13.2A2.4 2.4 0 0 1 21 11v4a2.4 2.4 0 0 1-2.4 2.4H17"/><path d="M7 14h10v6.6H7z"/></symbol>
-<symbol id="ic-tree" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M60 28v62"/><path d="M60 44c-7-4-11-11-12-19M60 44c7-4 11-11 12-19"/><path d="M60 58c-10-3-17-10-20-19M60 58c10-3 17-10 20-19"/><path d="M60 72c-13-2-23-10-28-20M60 72c13-2 23-10 28-20"/><path d="M60 90c-8 4-14 10-18 18M60 90c8 4 14 10 18 18M60 90v19"/><circle cx="60" cy="81" r="4.6" fill="currentColor" stroke="none" opacity=".45"/></symbol>
+<symbol id="ic-leaf-mark" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M60 10c20 19 31 38 31 56 0 22-13 38-31 44-18-6-31-22-31-44 0-18 11-37 31-56z"/><path d="M60 110V32"/><path d="M60 58 42 46M60 58l18-12M60 80 46 70M60 80l14-10"/></symbol>
 </svg>
 
 <div class="progress"><i id="pg"></i></div>
@@ -366,7 +349,6 @@ td strong{color:var(--ink)}
 <div class="chrome">
   <button class="btn-i" id="menuBtn" aria-label="فهرست"><svg><use href="#ic-menu"/></svg></button>
   <button class="btn-i" id="printBtn" aria-label="چاپ"><svg><use href="#ic-print"/></svg></button>
-  <button class="btn-i" id="themeBtn" aria-label="حالت روشن یا تاریک"><svg id="themeIc"><use href="#ic-moon"/></svg></button>
 </div>
 
 <button class="btn-i" id="top" aria-label="بازگشت به بالا"><svg><use href="#ic-up"/></svg></button>
@@ -391,9 +373,10 @@ td strong{color:var(--ink)}
 <main>
 
 <header class="cover">
-  <div class="cover__mark"><svg viewBox="0 0 120 120"><use href="#ic-tree"/></svg></div>
+  <div class="cover__mark"><svg viewBox="0 0 120 120"><use href="#ic-leaf-mark"/></svg></div>
   <h1>دستِ استوار<br>قلبِ بیدار</h1>
   <div class="cover__rule"></div>
+  <figure class="ill-wrap"><img class="ill" src="1.png" alt="طرحی از دو دستکش جراحی"></figure>
   <p class="cover__sub">
     <b>راهنمای میدانیِ تاب‌آوری، شفقت و مراقبت از روان</b>
     برای کسانی که در اتاق عمل، از جانِ آدمی نگهبانی می‌کنند
@@ -405,7 +388,7 @@ td strong{color:var(--ink)}
 </header>
 
 <section class="ch" id="intro">
-  <div class="ch__num"><svg><use href="#ic-heart"/></svg><span>مقدمه</span></div>
+  <div class="ch__num"><svg><use href="#ic-sprout"/></svg><span>مقدمه</span></div>
   <h2>نامه‌ای به تو، پیش از آنکه شروع کنیم</h2>
 
   <p class="lede">سلام.</p>
@@ -478,6 +461,8 @@ td strong{color:var(--ink)}
 </section>
 
 <div class="orn"><i></i><i></i><i></i></div>
+
+<figure class="ill-wrap"><img class="ill" src="2.png" alt="طرحی از نجات غریق با طناب، ایستاده بر خشکی"></figure>
 
 <section class="ch" id="c1">
   <div class="ch__num"><svg><use href="#ic-link"/></svg><span>فصل یکم</span></div>
@@ -619,6 +604,8 @@ td strong{color:var(--ink)}
 </section>
 
 <div class="orn"><i></i><i></i><i></i></div>
+
+<figure class="ill-wrap"><img class="ill" src="3.png" alt="طرحی از دست‌های جراح و خط قلب"></figure>
 
 <section class="ch" id="c2">
   <div class="ch__num"><svg><use href="#ic-spark"/></svg><span>فصل دوم</span></div>
@@ -793,6 +780,8 @@ td strong{color:var(--ink)}
 
 <div class="orn"><i></i><i></i><i></i></div>
 
+<figure class="ill-wrap"><img class="ill" src="4.png" alt="طرحی از تخت خالی اتاق عمل و یک دستکش بر زمین"></figure>
+
 <section class="ch" id="c3">
   <div class="ch__num"><svg><use href="#ic-flame"/></svg><span>فصل سوم</span></div>
   <h2>وقتی بیمار می‌رود</h2>
@@ -808,7 +797,7 @@ td strong{color:var(--ink)}
   <p>این «برگشتنِ فوری» شاید بزرگ‌ترین آسیبِ ساختاریِ حرفه‌ی توست. نه خودِ مرگ — <strong>نبودِ فضایی برای مرگ.</strong></p>
 
   <div class="cx cx--care">
-    <div class="cx__h"><svg><use href="#ic-heart"/></svg><span>هرچه حس کردی، درست بود</span></div>
+    <div class="cx__h"><svg><use href="#ic-sprout"/></svg><span>هرچه حس کردی، درست بود</span></div>
     <p>اگر بعد از یک مرگ، حسِ خالی‌بودن داشتی — طبیعی است.<br>
     اگر گریه‌ات نگرفت — طبیعی است.<br>
     اگر بعداً، سرِ یک موضوعِ بی‌ربط ترکیدی — طبیعی است.<br>
@@ -1026,6 +1015,8 @@ td strong{color:var(--ink)}
 </section>
 
 <div class="orn"><i></i><i></i><i></i></div>
+
+<figure class="ill-wrap"><img class="ill" src="5.png" alt="طرحی از یک دستِ باز و رو به بالا"></figure>
 
 <section class="ch" id="c4">
   <div class="ch__num"><svg><use href="#ic-shield"/></svg><span>فصل چهارم</span></div>
@@ -1312,6 +1303,8 @@ td strong{color:var(--ink)}
 
 <div class="orn"><i></i><i></i><i></i></div>
 
+<figure class="ill-wrap"><img class="ill" src="7.png" alt="طرحی از فردی با لباس اتاق عمل، ایستاده در آستانه‌ی در"></figure>
+
 <section class="ch" id="end">
   <div class="ch__num"><svg><use href="#ic-door"/></svg><span>خاتمه</span></div>
   <h2>نگهبانانِ آستانه</h2>
@@ -1343,7 +1336,7 @@ td strong{color:var(--ink)}
   <p>هدف این نبود که قلبی بسازیم که نمی‌شکند. هدف این بود که قلبی بسازیم که <strong>می‌داند چطور دوباره ترمیم شود، و باز بماند.</strong></p>
 
   <div class="close">
-    <svg><use href="#ic-heart"/></svg>
+    <svg><use href="#ic-sprout"/></svg>
     <p>تو قرار نیست مرگ را شکست بدهی.<br>تو قرار است زندگی را — تا آخرین ثانیه‌اش — با احترام همراهی کنی.</p>
     <p class="soft">بعضی روزها، این یعنی نجاتِ یک جان.<br>بعضی روزها، این یعنی حضور در لحظه‌ای که کسی می‌رود، تا تنها نرود.</p>
     <p>هر دو، کارِ تمام و کمالِ توست.<br>هر دو، کافی است.<br>و تو، کافی هستی.</p>
@@ -1468,7 +1461,7 @@ td strong{color:var(--ink)}
   </ul>
 
   <div class="cx cx--care" style="--tone:var(--clay);--tint:var(--clay-bg)">
-    <div class="cx__h"><svg><use href="#ic-heart"/></svg><span>اگر به آسیب‌رساندن به خودت فکر می‌کنی</span></div>
+    <div class="cx__h"><svg><use href="#ic-sprout"/></svg><span>اگر به آسیب‌رساندن به خودت فکر می‌کنی</span></div>
     <p><strong>همین حالا با کسی حرف بزن.</strong> یک همکار، یک دوست، یک عضو خانواده، یک اورژانس روان‌پزشکی.</p>
     <p><strong>این فوریت‌ترین کیسی است که امروز داری، و بیمارش تو هستی.</strong></p>
     <p>کادر درمان در معرض خطر بالاتری برای خودکشی هستند — نه چون ضعیف‌اند، بلکه چون بارِ سنگین‌تری حمل می‌کنند و کمتر از همه کمک می‌گیرند. <strong>تو حق داری بیمار باشی.</strong></p>
@@ -1545,25 +1538,6 @@ td strong{color:var(--ink)}
 
 <script>
 (function(){
-  var root=document.documentElement;
-
-  /* theme */
-  var tBtn=document.getElementById('themeBtn'), tIc=document.getElementById('themeIc');
-  function isDark(){
-    var a=root.getAttribute('data-theme');
-    if(a) return a==='dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  }
-  function paintIcon(){ tIc.innerHTML='<use href="#'+(isDark()?'ic-sun':'ic-moon')+'"/>'; }
-  try{ var saved=localStorage.getItem('sh-theme'); if(saved) root.setAttribute('data-theme',saved); }catch(e){}
-  paintIcon();
-  tBtn.addEventListener('click',function(){
-    var next=isDark()?'light':'dark';
-    root.setAttribute('data-theme',next);
-    try{ localStorage.setItem('sh-theme',next); }catch(e){}
-    paintIcon();
-  });
-
   /* print */
   document.getElementById('printBtn').addEventListener('click',function(){ window.print(); });
 
